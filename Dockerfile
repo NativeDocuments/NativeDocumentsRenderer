@@ -29,6 +29,6 @@ ENV NOOX_SERVICE_ENABLE_SYNC_ADDR=ndstore
 ENV NOOX_SERVICE_ENABLE_SYNC_PORT=6000
 ENV NOOX_SERVICE_TERMINATE_ON_LOAD=1
 ENV NDS_LICENSE=/opt/NativeDocumentsRenderer/nds.license
-ENV NDS_VERBOSE=2
+ENV NDS_VERBOSE=0
 ENTRYPOINT ["/bin/sh", "-c", "mkdir -p /nddata/storage; mkdir -p /nddata/log/NativeDocumentsRenderer; exec /opt/NativeDocumentsRenderer/ndrenderd service=0.0.0.0:9015"]
 EXPOSE 9015
