@@ -4,11 +4,12 @@
 # sudo docker run -d -p 9015:9015 -v ~/nds.license:/opt/NativeDocumentsRenderer/nds.license --link ndstore:ndstore --name ndrenderer nativedocuments/nativedocumentsrenderer
 
 FROM busybox:musl
+ARG version_suffix=
 VOLUME ["/nddata"]
-ADD http://downloads.nativedocuments.com/NativeDocumentsRenderer.tar.gz /tmp/
+ADD http://downloads.nativedocuments.com/NativeDocumentsRenderer${version_suffix}.tar.gz /tmp/
 RUN mkdir /opt
-RUN tar xzf /tmp/NativeDocumentsRenderer.tar.gz -C /opt
-RUN rm -f /tmp/NativeDocumentsRenderer.tar.gz
+RUN tar xzf /tmp/NativeDocumentsRenderer${version_suffix}.tar.gz -C /opt
+RUN rm -f /tmp/NativeDocumentsRenderer${version_suffix}.tar.gz
 # OPTIONAL: add hyphenation dictionaries
 ADD http://downloads.nativedocuments.com/dict/hyph_en_US.dic /opt/NativeDocumentsRenderer/
 ADD http://downloads.nativedocuments.com/dict/hyph_de_DE.dic /opt/NativeDocumentsRenderer/
